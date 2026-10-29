@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Campus Navy Palette -->
+    <color name="primary_navy">#0F2347</color>
+    <color name="primary_navy_dark">#0A1832</color>
+    <color name="secondary_blue">#2563EB</color>
+    <color name="accent_blue">#3B82F6</color>
+
+    <!-- Backgrounds & Surfaces -->
+    <color name="bg_light">#F8FAFC</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="border_light">#E2E8F0</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#475569</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Status Colors -->
+    <color name="status_open">#D97706</color>
+    <color name="status_open_bg">#FEF3C7</color>
+    <color name="status_assigned">#2563EB</color>
+    <color name="status_assigned_bg">#DBEAFE</color>
+    <color name="status_in_progress">#7C3AED</color>
+    <color name="status_in_progress_bg">#EDE9FE</color>
+    <color name="status_resolved">#059669</color>
+    <color name="status_resolved_bg">#D1FAE5</color>
+    <color name="status_closed">#475569</color>
+    <color name="status_closed_bg">#F1F5F9</color>
+
+    <!-- Priority Colors -->
+    <color name="priority_critical">#DC2626</color>
+    <color name="priority_high">#EA580C</color>
+    <color name="priority_medium">#CA8A04</color>
+    <color name="priority_low">#64748B</color>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Campus</string>
+    <string name="tagline">Campus Issue &amp; Facility Management</string>
+
+    <string name="login_title">Student Sign In</string>
+    <string name="register_title">Create Account</string>
+    <string name="email_hint">Campus Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Full Name</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    
+    <string name="new_complaint">Report New Issue</string>
+    <string name="my_complaints">My Complaints</string>
+    <string name="profile">My Profile</string>
+    <string name="submit">Submit Complaint</string>
+    <string name="logout">Sign Out</string>
+</resources>

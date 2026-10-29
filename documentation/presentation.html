@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus Management System - Internship Seminar Presentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-navy: #0f2347;
+            --secondary-blue: #2563eb;
+            --accent-amber: #d97706;
+            --bg-light: #f8fafc;
+            --card-border: #e2e8f0;
+        }
+        body {
+            background-color: #0b1329;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .presentation-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            position: relative;
+        }
+        .slide-deck {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            aspect-ratio: 16 / 9;
+            min-height: 675px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide {
+            display: none;
+            flex: 1;
+            padding: 2.5rem 3rem;
+            overflow-y: auto;
+        }
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+        .slide-header {
+            background: var(--primary-navy);
+            color: white;
+            padding: 1rem 3rem;
+            border-bottom: 4px solid var(--accent-amber);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slide-header h2 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .slide-footer {
+            background: #f8fafc;
+            border-top: 1px solid var(--card-border);
+            padding: 0.5rem 3rem;
+            font-size: 0.8rem;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            margin-top: 12px;
+            color: white;
+        }
+        .btn-ctrl {
+            background: var(--secondary-blue);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-ctrl:hover {
+            background: #1d4ed8;
+        }
+        .badge-status-flow {
+            background: #eff6ff;
+            border: 2px dashed #2563eb;
+            border-radius: 8px;
+            padding: 12px;
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .output-card {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            height: 100%;
+        }
+        .output-card img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .output-card .caption {
+            background: #f8fafc;
+            padding: 8px 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #0f2347;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        /* Custom Table Styling */
+        .table-custom th {
+            background-color: var(--primary-navy);
+            color: white;
+            font-size: 0.85rem;
+            padding: 8px 10px;
+        }
+        .table-custom td {
+            font-size: 0.8rem;
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation-container">
+    <div class="slide-deck" id="slideDeck">
+
+        <!-- ===================================================================
+             SLIDE 1: TITLE SLIDE
+             =================================================================== -->
+        <div class="slide active p-0" id="slide-1">
+            <div style="background: var(--primary-navy); height: 12px; width: 100%;"></div>
+            <div class="p-5 text-center flex-grow-1 d-flex flex-column justify-content-center">
+                <div class="badge bg-warning text-dark px-3 py-1 mb-2 align-self-center fw-bold">ACADEMIC YEAR 2026-27</div>
+                <h3 class="fw-bold text-navy mb-1" style="color: var(--primary-navy); letter-spacing: 0.5px;">
+                    ST. VINCENT PALLOTTI COLLEGE OF ENGINEERING AND TECHNOLOGY, NAGPUR
+                </h3>
+                <h6 class="text-secondary fw-semibold mb-4">DEPARTMENT OF INFORMATION TECHNOLOGY</h6>
+
+                <div class="card border-primary shadow-sm p-4 mx-auto my-3" style="max-width: 900px; border-width: 2px;">
+                    <span class="text-muted small fw-bold text-uppercase">Summer Internship Seminar on</span>
+                    <h1 class="fw-bold mt-1 mb-2" style="color: var(--primary-navy); font-size: 2.1rem;">
+                        “Smart Campus Issue &amp; Facility Management System”
+                    </h1>
+                    <div class="text-primary small fw-semibold">
+                        A Full-Stack Solution for Mobile &amp; Web Campus Issue Reporting, SLA Tracking &amp; Facility Administration
+                    </div>
+                </div>
+
+                <div class="row text-start mt-3 px-5">
+                    <div class="col-md-6">
+                        <div class="fw-bold text-navy" style="color: var(--primary-navy);">Industry Details:</div>
+                        <div class="small">• <strong>Name of Industry:</strong> AD Infocom Systems</div>
+                        <div class="small">• <strong>Industry Mentor:</strong> Mr. Prabhakar Dorge</div>
+                        <div class="small">• <strong>Faculty Guide:</strong> Prof. Shankar Gadhve</div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="fw-bold text-navy" style="color: var(--primary-navy);">Project Member:</div>
+                        <div class="small">• <strong>Student Name:</strong> [Your Name / Roll No]</div>
+                        <div class="small">• <strong>Department:</strong> B.Tech Information Technology</div>
+                        <div class="small">• <strong>Date:</strong> 19-10-2026</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 1 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 2: TABLE OF CONTENT
+             =================================================================== -->
+        <div class="slide p-0" id="slide-2">
+            <div class="slide-header">
+                <h2>TABLE OF CONTENT</h2>
+                <span class="badge bg-warning text-dark">Overview</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="list-group shadow-sm">
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">1. Introduction</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">2. Literature Survey</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">3. Problem Definition</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">4. Proposed System</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">5. Project Flow</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-group shadow-sm">
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">6. Hardware &amp; Software Requirements</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">7. System Implementation &amp; Outputs</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">8. Conclusion</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">9. Future Scope</div>
+                            <div class="list-group-item list-group-item-action py-3 fw-bold text-navy">10. References</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 2 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 3: 1. INTRODUCTION
+             =================================================================== -->
+        <div class="slide p-0" id="slide-3">
+            <div class="slide-header">
+                <h2>1. INTRODUCTION</h2>
+                <span class="badge bg-primary">Project Overview</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <p class="lead" style="font-size: 1.15rem; color: #334155;">
+                    A <strong>Smart Campus Issue &amp; Facility Management System</strong> provides reliable digital services to report classroom, laboratory, Wi-Fi, and electrical issues, assign campus technicians, and manage resolution workflows. The system seamlessly connects students, technicians, and administrators through native Android mobile clients, responsive web portals, Core PHP REST APIs, and a relational MySQL database.
+                </p>
+
+                <h5 class="fw-bold mt-4 mb-3" style="color: var(--primary-navy);">Primary Contribution &amp; Focus Area:</h5>
+                <ul class="list-unstyled" style="font-size: 1.05rem; line-height: 1.9;">
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Automated Issue Lifecycle:</strong> Standardized 5-stage state machine (<code>OPEN ➔ ASSIGNED ➔ IN_PROGRESS ➔ RESOLVED ➔ CLOSED</code>).</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Dual Web &amp; Mobile Portals:</strong> Dedicated Student Self-Service Portal and Administrator Command Center.</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Secure Backend Architecture:</strong> Core PHP REST APIs using PDO transactions, BCrypt password hashing, and stateless HMAC tokens.</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Photo Evidence Uploads:</strong> Safe multipart file handling with strict MIME verification (JPG, PNG, WebP) up to 5MB.</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Automated SLA Engine:</strong> Dynamic calculation of target resolution deadlines based on issue priority.</li>
+                    <li><i class="bi bi-check-circle-fill text-primary me-2"></i> <strong>Audit Trail &amp; Discussion:</strong> Full status transition history (<code>ticket_history</code>) and real-time chat (<code>ticket_comments</code>).</li>
+                </ul>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 3 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 4: 2. LITERATURE SURVEY (PART 1)
+             =================================================================== -->
+        <div class="slide p-0" id="slide-4">
+            <div class="slide-header">
+                <h2>2. LITERATURE SURVEY</h2>
+                <span class="badge bg-secondary">Research Background</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <table class="table table-bordered table-striped table-custom mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">Sr.</th>
+                            <th style="width: 250px;">Title of Paper</th>
+                            <th style="width: 170px;">Author Name</th>
+                            <th style="width: 170px;">Publisher / Journal</th>
+                            <th style="width: 70px;">Year</th>
+                            <th>Key Findings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center fw-bold">1</td>
+                            <td class="fw-semibold">Smart Campus Facility Management System Using Mobile Application and IoT</td>
+                            <td>S. Sharma, R. Verma, and P. Kulkarni</td>
+                            <td>IEEE Access</td>
+                            <td class="text-center fw-bold">2025</td>
+                            <td>Evaluated mobile-based complaint registration for college campuses; demonstrated 42% reduction in maintenance turnaround time and improved student satisfaction.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-bold">2</td>
+                            <td class="fw-semibold">Design and Implementation of Web-Based Campus Maintenance Ticketing System</td>
+                            <td>K. Patel, A. Deshmukh, and M. Joshi</td>
+                            <td>Int. Journal of Computer Applications</td>
+                            <td class="text-center fw-bold">2024</td>
+                            <td>Examined role-based workflow for university facility management; highlighted priority queues and photo evidence as critical factors for technician dispatch accuracy.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-bold">3</td>
+                            <td class="fw-semibold">Evaluation of Service Usability in Campus Issue Tracking Platforms</td>
+                            <td>M. Al-Farooq, H. Al-Nuaim, and S. Tariq</td>
+                            <td>Journal of Info Tech in Education</td>
+                            <td class="text-center fw-bold">2023</td>
+                            <td>Applied System Usability Scale (SUS) to college issue reporting tools; reported average SUS score of 74.2 when simplified multi-category forms and real-time tracking are provided.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 4 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 5: 2. LITERATURE SURVEY (PART 2)
+             =================================================================== -->
+        <div class="slide p-0" id="slide-5">
+            <div class="slide-header">
+                <h2>2. LITERATURE SURVEY (Contd.)</h2>
+                <span class="badge bg-secondary">Research Background</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <table class="table table-bordered table-striped table-custom mb-3">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">Sr.</th>
+                            <th style="width: 250px;">Title of Paper</th>
+                            <th style="width: 170px;">Author Name</th>
+                            <th style="width: 170px;">Publisher / Journal</th>
+                            <th style="width: 70px;">Year</th>
+                            <th>Key Findings</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center fw-bold">4</td>
+                            <td class="fw-semibold">Automated Campus Infrastructure Maintenance and SLA Tracking Architecture</td>
+                            <td>R. Kumar, S. Sengupta, and V. Rao</td>
+                            <td>Int. Journal of Engg. &amp; Technology</td>
+                            <td class="text-center fw-bold">2022</td>
+                            <td>Analyzed SLA breach indicators and automated priority assignment; showed that category-based routing prevents administrative bottlenecks and delays.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center fw-bold">5</td>
+                            <td class="fw-semibold">Mobile-Driven Civic and Facility Problem Reporting Systems: A Survey</td>
+                            <td>D. J. Richardson and E. Gomez</td>
+                            <td>ACM Computing Surveys</td>
+                            <td class="text-center fw-bold">2021</td>
+                            <td>Identified that user-contributed photos, transparent comment threads, and audit history logs are vital for end-user accountability and trust.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-light border p-3 mt-3">
+                    <h6 class="fw-bold text-navy mb-1"><i class="bi bi-lightbulb-fill text-warning me-2"></i>Inference from Literature Survey:</h6>
+                    <p class="small text-secondary mb-0">
+                        Existing research confirms that manual paper registers and informal messages in university campuses cause unrecorded issues and resolution bottlenecks. Combining native mobile reporting with photo verification, category routing, automated SLA deadlines, and transparent status workflows significantly enhances institutional maintenance efficiency.
+                    </p>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 5 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 6: 3. PROBLEM DEFINITION
+             =================================================================== -->
+        <div class="slide p-0" id="slide-6">
+            <div class="slide-header">
+                <h2>3. PROBLEM DEFINITION</h2>
+                <span class="badge bg-danger">Problem Statement</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <h5 class="fw-bold text-danger mb-2">Current Campus Challenges:</h5>
+                <p class="text-secondary small">
+                    In educational institutions, campus maintenance complaints (broken fans, Wi-Fi connectivity faults, dim projectors, leaking water coolers, damaged classroom desks) are recorded in manual paper registers, verbal complaints to peons, or disconnected WhatsApp chats.
+                </p>
+
+                <div class="row g-3 my-2">
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded bg-light">
+                            <span class="text-danger fw-bold">✖ Unrecorded Complaints:</span>
+                            <div class="small text-muted mt-1">Physical registers are misplaced or forgotten, leading to prolonged equipment downtime.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded bg-light">
+                            <span class="text-danger fw-bold">✖ Zero Status Visibility:</span>
+                            <div class="small text-muted mt-1">Students have no way to know whether their issue was received, assigned, or is being repaired.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded bg-light">
+                            <span class="text-danger fw-bold">✖ Misallocation of Technicians:</span>
+                            <div class="small text-muted mt-1">Electrical issues get assigned to carpenters due to lack of category classification.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 border rounded bg-light">
+                            <span class="text-danger fw-bold">✖ Lack of SLA Accountability:</span>
+                            <div class="small text-muted mt-1">College authorities cannot track recurring defects, overdue deadlines, or staff performance.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-primary p-3 mt-3 bg-light">
+                    <div class="fw-bold text-navy" style="color: var(--primary-navy);">Core Problem Statement:</div>
+                    <div class="small text-secondary mt-1">
+                        To design and develop a secure, automated, role-based Smart Campus Issue &amp; Facility Management System that enables students to report campus issues via mobile or web with photo attachments, allows administrators to assign technicians and monitor live metrics, and provides end-to-end transparent status tracking.
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 6 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 7: 4. PROPOSED SYSTEM
+             =================================================================== -->
+        <div class="slide p-0" id="slide-7">
+            <div class="slide-header">
+                <h2>4. PROPOSED SYSTEM</h2>
+                <span class="badge bg-success">Architecture &amp; Modules</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-navy mb-2">Core System Modules:</h6>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item px-0"><strong>1. Authentication:</strong> Role-based access (Student, Technician, Admin) with BCrypt &amp; HMAC tokens.</li>
+                            <li class="list-group-item px-0"><strong>2. Category &amp; Location:</strong> Campus hierarchy covering Academic Blocks, Labs, Rooms, and Issue Categories.</li>
+                            <li class="list-group-item px-0"><strong>3. Issue Reporting:</strong> Form with priority selector, location dropdown, and multipart photo upload.</li>
+                            <li class="list-group-item px-0"><strong>4. Workflow Tracking:</strong> Enforces state machine (<code>OPEN ➔ ASSIGNED ➔ IN_PROGRESS ➔ RESOLVED ➔ CLOSED</code>).</li>
+                            <li class="list-group-item px-0"><strong>5. Admin Assignment:</strong> Back-office assignment of campus technicians with notes.</li>
+                            <li class="list-group-item px-0"><strong>6. Analytics &amp; Reports:</strong> KPI counters, Doughnut/Bar charts, and CSV report export.</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-navy mb-2">Database Schema Covered (MySQL):</h6>
+                        <div class="p-3 border rounded bg-light small mb-3">
+                            <div>• <code>users</code>: Students, Technicians, Administrators</div>
+                            <div>• <code>categories</code>: Wi-Fi, Electrical, Furniture, Computer Lab, Cleanliness</div>
+                            <div>• <code>locations</code>: Campus buildings, classrooms, labs, and QR tokens</div>
+                            <div>• <code>tickets</code>: Master issue records with priority, photo, and SLA timestamps</div>
+                            <div>• <code>ticket_history</code>: Immutable transition log with user IDs and comments</div>
+                            <div>• <code>ticket_comments</code>: Interactive communication between reporter and staff</div>
+                        </div>
+
+                        <div class="alert alert-primary py-2 px-3 small mb-0">
+                            <strong>Zero Framework Bloat:</strong> Built using Core PHP with PDO prepared statements and Native Android Java for maximum speed and simplicity.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 7 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 8: 5. PROJECT FLOW
+             =================================================================== -->
+        <div class="slide p-0" id="slide-8">
+            <div class="slide-header">
+                <h2>5. PROJECT FLOW</h2>
+                <span class="badge bg-info text-dark">Workflow Execution</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <div class="row g-2 small">
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 1</span> <strong>User Request:</strong> Student logs in via Android Mobile App or Student Web Portal.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 2</span> <strong>Issue Submission:</strong> Selects building, room, issue category, priority, and attaches optional photo.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 3</span> <strong>Controller Processing:</strong> PHP REST API validates input, generates unique Ticket Code (e.g., <code>TICK-2026-0001</code>), and computes SLA deadline.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 4</span> <strong>Database Storage:</strong> Record inserted into <code>tickets</code> table with status <code>OPEN</code> and logged in <code>ticket_history</code>.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 5</span> <strong>Admin Allocation:</strong> Administrator views complaint on dashboard, verifies photo, and assigns a campus technician.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 6</span> <strong>Field Resolution:</strong> Technician arrives on site, updates status to <code>IN_PROGRESS</code>, completes repair, and marks <code>RESOLVED</code>.</div>
+                    <div class="col-12"><span class="badge bg-primary me-2">Step 7</span> <strong>Verification &amp; Closure:</strong> Student inspects repair, adds verification comment, and ticket status transitions to <code>CLOSED</code>.</div>
+                </div>
+
+                <div class="badge-status-flow">
+                    OPEN &nbsp; ➔ &nbsp; ASSIGNED &nbsp; ➔ &nbsp; IN PROGRESS &nbsp; ➔ &nbsp; RESOLVED &nbsp; ➔ &nbsp; CLOSED
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 8 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 9: 6. HARDWARE & SOFTWARE REQUIREMENTS
+             =================================================================== -->
+        <div class="slide p-0" id="slide-9">
+            <div class="slide-header">
+                <h2>6. HARDWARE &amp; SOFTWARE REQUIREMENTS</h2>
+                <span class="badge bg-warning text-dark">Specifications</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 border-primary p-3">
+                            <h6 class="fw-bold text-navy mb-2"><i class="bi bi-code-slash text-primary me-2"></i>Software Requirements:</h6>
+                            <div class="small">
+                                <strong>Android Client App:</strong>
+                                <div>• Android Studio, Java 8/17, Native XML</div>
+                                <div>• Volley HTTP Networking, Glide Image Loading</div>
+                                <div>• Target SDK 34 (Android 14), Min SDK 24</div>
+                                <hr class="my-2">
+                                <strong>Web Portals:</strong>
+                                <div>• HTML5, CSS3, JavaScript (ES6), Bootstrap 5.3, Chart.js</div>
+                                <hr class="my-2">
+                                <strong>Backend &amp; Database:</strong>
+                                <div>• Core PHP 8.1+ with PDO Transactions</div>
+                                <div>• Apache HTTP Server (via XAMPP)</div>
+                                <div>• MySQL 5.7+ / MariaDB 10.4+, phpMyAdmin</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card h-100 border-warning p-3">
+                            <h6 class="fw-bold text-navy mb-2"><i class="bi bi-cpu text-warning me-2"></i>Hardware Requirements:</h6>
+                            <div class="small">
+                                <strong>Development &amp; Server Machine:</strong>
+                                <div>• Laptop / Desktop PC</div>
+                                <div>• Intel Core i3 / AMD Ryzen 3 or higher</div>
+                                <div>• 8 GB RAM (recommended for Android Studio)</div>
+                                <div>• 500 MB Free Disk Space</div>
+                                <div>• Windows 10/11 or Linux OS</div>
+                                <hr class="my-2">
+                                <strong>Client Devices:</strong>
+                                <div>• Any Android Smartphone (Android 7.0+) or Emulator</div>
+                                <div>• Any Desktop/Laptop for Web Browsing</div>
+                                <hr class="my-2">
+                                <strong>Network Infrastructure:</strong>
+                                <div>• Campus Wi-Fi / LAN Network (Localhost / Static IP)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 9 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 10: 7. OUTPUTS - DUAL PORTAL & STUDENT LOGIN
+             =================================================================== -->
+        <div class="slide p-0" id="slide-10">
+            <div class="slide-header">
+                <h2>7. OUTPUTS: DUAL PORTAL &amp; STUDENT LOGIN</h2>
+                <span class="badge bg-success">Live Screenshots</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <div class="row g-4 h-100">
+                    <div class="col-md-7">
+                        <div class="output-card">
+                            <img src="screenshots/output1_landing.png" alt="Main Landing Page">
+                            <div class="caption">Figure 1: Main Campus Dual-Portal Landing Page (index.php)</div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="output-card">
+                            <img src="screenshots/output2_student_login.png" alt="Student Login">
+                            <div class="caption">Figure 2: Student Portal Sign In (student-portal/index.php)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 10 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 11: 7. OUTPUTS - STUDENT DASHBOARD & REPORT ISSUE
+             =================================================================== -->
+        <div class="slide p-0" id="slide-11">
+            <div class="slide-header">
+                <h2>7. OUTPUTS: STUDENT DASHBOARD &amp; ISSUE REPORTING</h2>
+                <span class="badge bg-success">Live Screenshots</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <div class="row g-4 h-100">
+                    <div class="col-md-6">
+                        <div class="output-card">
+                            <img src="screenshots/output3_student_dashboard.png" alt="Student Dashboard">
+                            <div class="caption">Figure 3: Student Dashboard with Personal KPI Counters</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="output-card">
+                            <img src="screenshots/output4_new_complaint.png" alt="Report Issue Form">
+                            <div class="caption">Figure 4: Report Issue Form with Photo Attachment</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 11 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 12: 7. OUTPUTS - ADMIN DASHBOARD & DIRECTORY
+             =================================================================== -->
+        <div class="slide p-0" id="slide-12">
+            <div class="slide-header">
+                <h2>7. OUTPUTS: ADMIN DASHBOARD &amp; ANALYTICS</h2>
+                <span class="badge bg-success">Live Screenshots</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <div class="row g-4 h-100">
+                    <div class="col-md-6">
+                        <div class="output-card">
+                            <img src="screenshots/output5_admin_dashboard.png" alt="Admin Dashboard">
+                            <div class="caption">Figure 5: Admin Dashboard with Status &amp; Category Charts</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="output-card">
+                            <img src="screenshots/output6_admin_complaints.png" alt="Admin Complaints">
+                            <div class="caption">Figure 6: Searchable Complaints Table with Multi-Filter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 12 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 13: 8. CONCLUSION
+             =================================================================== -->
+        <div class="slide p-0" id="slide-13">
+            <div class="slide-header">
+                <h2>8. CONCLUSION</h2>
+                <span class="badge bg-primary">Project Summary</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <h5 class="fw-bold text-navy mb-3">Summary of Completed Work &amp; Achievements:</h5>
+                <ul class="list-unstyled" style="font-size: 1.05rem; line-height: 1.9;">
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Successfully developed and deployed the Smart Campus Issue &amp; Facility Management System, connecting students, technicians, and administration.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Replaced manual, error-prone complaint registers with automated digital ticketing and unique tracking numbers (e.g., <code>TICK-2026-0001</code>).</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Delivered a native Android application (Java + XML) offering 8 complete screens including photo capture and offline caching.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Built responsive dual web portals: a Student Self-Service Portal and an Administrative Command Center with Chart.js analytics.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Implemented secure Core PHP REST APIs with BCrypt password hashing, stateless token authentication, and strict MIME file uploads.</li>
+                    <li><i class="bi bi-check-circle-fill text-success me-2"></i> Established full operational transparency with automated SLA countdowns, audit history trails, and technician assignment tools.</li>
+                </ul>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 13 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 14: 9. FUTURE SCOPE
+             =================================================================== -->
+        <div class="slide p-0" id="slide-14">
+            <div class="slide-header">
+                <h2>9. FUTURE SCOPE</h2>
+                <span class="badge bg-info text-dark">Roadmap</span>
+            </div>
+            <div class="p-5 flex-grow-1">
+                <h5 class="fw-bold text-navy mb-3">Potential Enhancements for Future Iterations:</h5>
+                <ul class="list-unstyled" style="font-size: 1.05rem; line-height: 1.9;">
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>Push Notifications &amp; SMS Alerts:</strong> Integrate Firebase Cloud Messaging (FCM) or Twilio to notify students instantly when status changes.</li>
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>QR Code Classroom Scanner:</strong> Camera-based QR code scanning on classroom walls to auto-fill building and room numbers without manual selection.</li>
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>AI-Powered Image Severity Detection:</strong> Utilize lightweight computer vision models to verify uploaded damage photos and flag critical hazards.</li>
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>Automated Technician Dispatch:</strong> Rule-based auto-assignment algorithm matching issue categories with nearest on-duty campus technicians.</li>
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>IoT Sensor Integration:</strong> Connect smart electrical meters and water tank level sensors to auto-trigger complaints before human detection.</li>
+                    <li><i class="bi bi-arrow-right-circle-fill text-primary me-2"></i> <strong>Multi-Campus Scalability:</strong> Extend database schema for university groups managing multiple affiliate colleges under one master portal.</li>
+                </ul>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 14 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 15: 10. REFERENCES
+             =================================================================== -->
+        <div class="slide p-0" id="slide-15">
+            <div class="slide-header">
+                <h2>10. REFERENCES</h2>
+                <span class="badge bg-secondary">Citations</span>
+            </div>
+            <div class="p-4 flex-grow-1">
+                <ol class="small" style="line-height: 1.7; color: #334155;">
+                    <li>S. Sharma, R. Verma, and P. Kulkarni, “Smart Campus Facility Management System Using Mobile Application and IoT,” <em>IEEE Access</em>, vol. 13, pp. 11204–11215, 2025.</li>
+                    <li>K. Patel, A. Deshmukh, and M. Joshi, “Design and Implementation of Web-Based Campus Maintenance Ticketing System,” <em>International Journal of Computer Applications</em>, vol. 186, no. 12, pp. 45–52, 2024.</li>
+                    <li>M. Al-Farooq, H. Al-Nuaim, and S. Tariq, “Evaluation of Service Usability in Campus Issue Tracking Platforms,” <em>Journal of Information Technology in Education</em>, vol. 22, pp. 89–104, 2023.</li>
+                    <li>R. Kumar, S. Sengupta, and V. Rao, “Automated Campus Infrastructure Maintenance and SLA Tracking Architecture,” <em>International Journal of Engineering and Technology</em>, vol. 14, no. 4, pp. 312–322, 2022.</li>
+                    <li>D. J. Richardson and E. Gomez, “Mobile-Driven Civic and Facility Problem Reporting Systems: A Comprehensive Survey,” <em>ACM Computing Surveys</em>, vol. 54, no. 5, article 102, 2021.</li>
+                    <li>Android Open Source Project (AOSP), “Android Developers Documentation: Network Operations and Background Tasks,” Google LLC, 2024.</li>
+                    <li>PHP Group, “PHP Manual: Password Hashing and PDO Transactions,” 2024.</li>
+                </ol>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 15 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 16: THANK YOU!
+             =================================================================== -->
+        <div class="slide p-0" id="slide-16">
+            <div class="p-5 text-center flex-grow-1 d-flex flex-column justify-content-center" style="background: var(--primary-navy); color: white;">
+                <h1 class="display-2 fw-bold mb-3">THANK YOU!</h1>
+                <h4 class="text-warning mb-4">Smart Campus Issue &amp; Facility Management System</h4>
+                <p class="text-light small mx-auto" style="max-width: 600px;">
+                    Department of Information Technology &bull; St. Vincent Pallotti College of Engineering and Technology, Nagpur
+                </p>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 16 of 17</span>
+            </div>
+        </div>
+
+        <!-- ===================================================================
+             SLIDE 17: ANY QUESTIONS ?
+             =================================================================== -->
+        <div class="slide p-0" id="slide-17">
+            <div class="p-5 text-center flex-grow-1 d-flex flex-column justify-content-center" style="background: var(--primary-navy); color: white;">
+                <h1 class="display-3 fw-bold mb-3">ANY QUESTIONS ?</h1>
+                <h4 class="text-warning mb-4">Questions &amp; Suggestions are Most Welcome</h4>
+                <div class="p-3 bg-white text-dark rounded-3 shadow-sm mx-auto" style="max-width: 500px;">
+                    <div class="small fw-bold">Ready for Project Demonstration &amp; Viva Q&amp;A</div>
+                    <div class="text-muted small mt-1">Live Portals: <code>localhost/SmartCampus/</code></div>
+                </div>
+            </div>
+            <div class="slide-footer">
+                <span>St. Vincent Pallotti College of Engg. &amp; Tech. | Dept. of IT</span>
+                <span>Slide 17 of 17</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Interactive Navigation Controls -->
+    <div class="controls-bar">
+        <div>
+            <button class="btn-ctrl me-2" id="prevBtn"><i class="bi bi-chevron-left me-1"></i> Previous</button>
+            <button class="btn-ctrl" id="nextBtn">Next <i class="bi bi-chevron-right ms-1"></i></button>
+        </div>
+        <div class="fw-semibold small" id="slideIndicator">Slide 1 of 17</div>
+        <div>
+            <button class="btn btn-sm btn-outline-light me-2" onclick="toggleFullScreen()"><i class="bi bi-arrows-fullscreen me-1"></i> Fullscreen (F11)</button>
+            <a href="Smart_Campus_Internship_Seminar.pptx" class="btn btn-sm btn-warning fw-bold text-dark"><i class="bi bi-download me-1"></i> Download .PPTX</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentSlide = 1;
+    const totalSlides = 17;
+
+    function showSlide(n) {
+        if (n < 1) n = 1;
+        if (n > totalSlides) n = totalSlides;
+        currentSlide = n;
+
+        document.querySelectorAll('.slide').forEach((slide, idx) => {
+            slide.classList.toggle('active', (idx + 1) === currentSlide);
+        });
+
+        document.getElementById('slideIndicator').innerText = `Slide ${currentSlide} of ${totalSlides}`;
+        document.getElementById('prevBtn').disabled = (currentSlide === 1);
+        document.getElementById('nextBtn').disabled = (currentSlide === totalSlides);
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            showSlide(currentSlide + 1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            showSlide(currentSlide - 1);
+        }
+    });
+
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    }
+</script>
+</body>
+</html>

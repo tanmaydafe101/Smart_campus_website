@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Summer Internship Report - Tanmay Kishor Dafe</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 14mm 18mm 14mm 18mm;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #111;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+  }
+  .page {
+    width: 174mm;
+    height: 264mm;
+    max-height: 264mm;
+    margin: 0 auto;
+    page-break-after: always;
+    break-after: page;
+    position: relative;
+    padding: 4px 8px;
+    overflow: hidden;
+  }
+  .bordered-page {
+    border: 2px solid #000;
+    padding: 18px 24px;
+    height: 260mm;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .text-center { text-align: center; }
+  .text-justify { text-align: justify; }
+  .text-right { text-align: right; }
+  .bold { font-weight: bold; }
+  p { margin: 0 0 7px 0; }
+  
+  .page-num {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 10.5pt;
+  }
+  
+  table.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0;
+    font-size: 9.5pt;
+    line-height: 1.35;
+  }
+  table.report-table th, table.report-table td {
+    border: 1px solid #333;
+    padding: 5px 7px;
+    text-align: left;
+    vertical-align: top;
+  }
+  table.report-table th {
+    background-color: #f1f5f9;
+    font-weight: bold;
+  }
+  
+  .code-box {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 8.5pt;
+    line-height: 1.3;
+    margin: 5px 0;
+    white-space: pre-wrap;
+  }
+  
+  .img-container {
+    text-align: center;
+    margin: 5px 0;
+  }
+  .img-container img {
+    max-width: 98%;
+    height: auto;
+    border: 1px solid #64748b;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+  .img-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 5px 0;
+  }
+  .img-col {
+    flex: 1;
+    text-align: center;
+  }
+  .img-col img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #64748b;
+    border-radius: 3px;
+  }
+  
+  .caption {
+    font-size: 8.5pt;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3px;
+    margin-bottom: 5px;
+  }
+  
+  ul {
+    margin: 3px 0 7px 18px;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 3px;
+    text-align: justify;
+  }
+  
+  .ref-item {
+    margin-bottom: 5px;
+    text-align: justify;
+    font-size: 9.5pt;
+    line-height: 1.35;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: TITLE PAGE -->
+<div class="page">
+  <div class="bordered-page text-center">
+    <div>
+      <h2 style="font-size: 15pt; letter-spacing: 0.5px; margin-top: 10px; margin-bottom: 8px;">SUMMER INTERNSHIP REPORT</h2>
+      <p style="font-size: 11.5pt; margin: 10px 0;">ON</p>
+      <h1 style="font-size: 15.5pt; font-weight: bold; line-height: 1.3; max-width: 90%; margin: 0 auto;">SMART CAMPUS ISSUE &amp; FACILITY MANAGEMENT SYSTEM</h1>
+    </div>
+    
+    <div>
+      <p style="font-size: 12pt; margin-bottom: 3px;"><strong>VII Semester</strong></p>
+      <p style="font-size: 11.5pt;">Bachelor of Technology in Information Technology</p>
+    </div>
+    
+    <div>
+      <p style="font-size: 11pt; margin-bottom: 3px;"><strong>Submitted by</strong></p>
+      <p style="font-size: 13pt; font-weight: bold; margin-bottom: 2px;">Tanmay Kishor Dafe</p>
+      <p style="font-size: 11pt;">Roll No. 24110002</p>
+    </div>
+    
+    <div>
+      <p style="font-size: 11pt; margin-bottom: 3px;"><strong>Under the guidance of</strong></p>
+      <p style="font-size: 12pt; font-weight: bold; margin-bottom: 2px;">Prof. Shankar Gadhve</p>
+      <p style="font-size: 11pt; font-style: italic;">Assistant Professor</p>
+    </div>
+    
+    <div>
+      <p style="font-size: 11.5pt; font-weight: bold;">Academic Year 2026 – 27</p>
+    </div>
+    
+    <div style="margin: 8px 0;">
+      <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/college_logo.png" style="height: 90px; width: auto;" alt="SVPCET Logo">
+    </div>
+    
+    <div style="margin-bottom: 10px;">
+      <p style="font-size: 10.5pt; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 2px;">DEPARTMENT OF INFORMATION TECHNOLOGY</p>
+      <h2 style="font-size: 14pt; font-weight: bold; margin-bottom: 2px;">ST. VINCENT PALLOTTI</h2>
+      <h3 style="font-size: 11.5pt; font-weight: bold; margin-bottom: 3px;">COLLEGE OF ENGINEERING AND TECHNOLOGY</h3>
+      <p style="font-size: 9.5pt;">Wardha Road, Gavsi Manapur, Nagpur-441108</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: CERTIFICATE -->
+<div class="page">
+  <div class="bordered-page">
+    <div class="text-center" style="margin-top: 15px;">
+      <h3 style="font-size: 12.5pt; font-weight: bold; margin-bottom: 4px;">ST. VINCENT PALLOTTI COLLEGE OF<br>ENGINEERING AND TECHNOLOGY, NAGPUR</h3>
+      <h4 style="font-size: 11pt; font-weight: bold; letter-spacing: 0.5px; margin-top: 8px;">DEPARTMENT OF INFORMATION TECHNOLOGY</h4>
+      <div style="margin-top: 22px;">
+        <span style="font-size: 13.5pt; font-weight: bold; text-decoration: underline; letter-spacing: 1px;">CERTIFICATE</span>
+      </div>
+    </div>
+    
+    <div class="text-justify" style="font-size: 11pt; line-height: 1.75; margin: 20px 0;">
+      This is to certify that <strong>Mr. Tanmay Kishor Dafe</strong> (UID No. <strong>24110002</strong>), a student of VII Semester, Bachelor of Technology in Information Technology, has satisfactorily completed his individual contribution towards the project entitled <strong>“Smart Campus Issue &amp; Facility Management System”</strong> under my supervision. He was responsible for the <strong>MySQL database design &amp; full-stack integration of the system – relational database architecture, permanent storage of users, facilities, complaints, technician assignments and activity history, and secure retrieval of this data for the dashboard, student portal and reporting screens</strong> – and this report is a bonafide record of the work carried out by him as part of the project team during the academic year 2026-27.
+    </div>
+    
+    <div style="display: flex; justify-content: space-between; margin-top: 35px;">
+      <div class="text-center">
+        <p style="margin-bottom: 3px;"><strong>Dr. Shabana Pathan</strong></p>
+        <p style="font-size: 9.5pt; font-style: italic; margin-bottom: 10px;">Assistant Professor</p>
+        <p style="font-size: 10pt; font-weight: bold;">HEAD OF THE DEPARTMENT</p>
+      </div>
+      <div class="text-center">
+        <p style="margin-bottom: 3px;"><strong>Prof. Shankar Gadhve</strong></p>
+        <p style="font-size: 9.5pt; font-style: italic; margin-bottom: 10px;">Assistant Professor</p>
+        <p style="font-size: 10pt; font-weight: bold;">GUIDE</p>
+      </div>
+    </div>
+    
+    <div class="text-center" style="margin-top: 35px; margin-bottom: 15px;">
+      <p style="font-size: 10.5pt; font-weight: bold; margin-bottom: 3px;">PRINCIPAL</p>
+      <p style="font-size: 10.5pt; font-weight: bold;">ST. VINCENT PALLOTTI COLLEGE OF ENGINEERING AND TECHNOLOGY</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: ACKNOWLEDGEMENT -->
+<div class="page">
+  <div class="bordered-page">
+    <div class="text-center" style="margin-top: 15px;">
+      <h2 style="font-size: 14pt; font-weight: bold; letter-spacing: 1px;">ACKNOWLEDGEMENT</h2>
+    </div>
+    
+    <div class="text-justify" style="font-size: 11pt; line-height: 1.7; margin-top: 20px;">
+      <p>Working on the <strong>Smart Campus Issue &amp; Facility Management System</strong> has been an important milestone in my learning journey. I would like to express my sincere gratitude to my Project Guide, <strong>Prof. Shankar Gadhve</strong>, Assistant Professor, Department of Information Technology, for his valuable guidance, constant encouragement and continuous support throughout the project.</p>
+      
+      <p>I am also grateful to our industry mentor, <strong>Mr. Prabhakar Dorge</strong>, Senior Technical Consultant, AD Infocom Systems, for his technical guidance and support during my summer internship and the development of the system.</p>
+      
+      <p>My special thanks go to <strong>Dr. Shabana Pathan</strong>, Head, Department of Information Technology, and to all the faculty members who regularly evaluated our work and gave important feedback for its improvement.</p>
+      
+      <p>I take this opportunity to express my deep sense of gratitude to the Management and the Principal, <strong>Dr. Prashant Maheshwary</strong>, St. Vincent Pallotti College of Engineering and Technology, for providing the computer lab, infrastructure and a supportive learning environment.</p>
+      
+      <p>Finally, I thank my teammates and project peers for their active cooperation and constructive feedback, which made it possible to design, implement and test the complete system successfully.</p>
+    </div>
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 35px; margin-bottom: 20px;">
+      <div>
+        <p><strong>Date:</strong> 23-10-2026</p>
+        <p><strong>Place:</strong> Nagpur</p>
+      </div>
+      <div class="text-right">
+        <p style="font-size: 11.5pt; font-weight: bold; margin-bottom: 2px;">Tanmay Kishor Dafe</p>
+        <p style="font-size: 10.5pt;">UID No. 24110002</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: CONTENTS -->
+<div class="page">
+  <div class="page-num">4</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 16px;">
+    <h2 style="font-size: 14pt; font-weight: bold; letter-spacing: 1px;">CONTENTS</h2>
+  </div>
+  
+  <table class="report-table" style="font-size: 10.5pt; border-collapse: collapse; margin-top: 10px;">
+    <thead>
+      <tr style="background: #fff;">
+        <th style="width: 12%; text-align: center; border: 1px solid #000;">Sr. No.</th>
+        <th style="width: 72%; border: 1px solid #000;">Contents</th>
+        <th style="width: 16%; text-align: center; border: 1px solid #000;">Page No.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">1</td>
+        <td style="font-weight: bold;">Introduction</td>
+        <td style="text-align: center; font-weight: bold;">5</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">2</td>
+        <td style="font-weight: bold;">Project Overview</td>
+        <td style="text-align: center; font-weight: bold;">6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">3</td>
+        <td style="font-weight: bold;">Objectives of My Contribution</td>
+        <td style="text-align: center; font-weight: bold;">6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">4</td>
+        <td style="font-weight: bold;">Technologies Used</td>
+        <td style="text-align: center; font-weight: bold;">7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">5</td>
+        <td>
+          <div style="font-weight: bold; margin-bottom: 2px;">Modules Developed / Tasks Performed</div>
+          <div style="padding-left: 15px; font-size: 9.5pt; line-height: 1.45;">
+            5.1 Database Design in MySQL<br>
+            5.2 Database Tables and Schema Structure<br>
+            5.3 Connecting Backend to MySQL via PDO<br>
+            5.4 Authentication and Complaint Submission<br>
+            5.5 System Outputs and User Interface Screens<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&bull; 5.5.1 Landing Portal &amp; Student Authentication (Outputs 1 &amp; 2)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&bull; 5.5.2 Student Dashboard &amp; New Complaint Filing (Outputs 3 &amp; 4)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&bull; 5.5.3 Admin Control Dashboard &amp; Resolution Queue (Outputs 5 &amp; 6)<br>
+            5.6 Team Activities and Quality Assurance Testing
+          </div>
+        </td>
+        <td style="text-align: center; font-weight: bold;">7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">6</td>
+        <td>
+          <div style="font-weight: bold; margin-bottom: 2px;">Outcomes Achieved</div>
+          <div style="padding-left: 15px; font-size: 9.5pt; line-height: 1.4;">
+            6.1 Technical Learning<br>
+            6.2 Project Experience
+          </div>
+        </td>
+        <td style="text-align: center; font-weight: bold;">12</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">7</td>
+        <td style="font-weight: bold;">Challenges Faced and Solutions</td>
+        <td style="text-align: center; font-weight: bold;">12</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">8</td>
+        <td style="font-weight: bold;">Conclusion</td>
+        <td style="text-align: center; font-weight: bold;">13</td>
+      </tr>
+      <tr>
+        <td style="text-align: center; font-weight: bold;">9</td>
+        <td style="font-weight: bold;">References</td>
+        <td style="text-align: center; font-weight: bold;">13</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAGE 5: INTRODUCTION -->
+<div class="page">
+  <div class="page-num">5</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 16px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">1. Introduction</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.62; font-size: 10.5pt;">
+    <p>College and university campuses are large, active educational environments consisting of classroom complexes, computer laboratories, research centers, libraries, administrative offices, and student hostels. Keeping campus physical infrastructure in working order—including classroom projectors, lab computers, air conditioners, fans, lighting, network access points, and water sanitation fixtures—is vital for supporting smooth daily academic activities.</p>
+    
+    <p>Traditionally, facility maintenance and complaint handling on campuses have relied on manual physical logbooks maintained in departmental offices, verbal messages passed to office attendants, or informal emails. This manual process has major flaws: complaints often lack essential specifics (such as the exact room number, bench location, or photo evidence of physical damage); manual registers give students zero visibility into whether their complaint was reviewed or assigned; and facility supervisors have no easy way to track recurring equipment faults, technician response delays, or departmental performance.</p>
+    
+    <p>To overcome these challenges, the <strong>Smart Campus Issue &amp; Facility Management System</strong> was developed as a modern, web and mobile-based platform. The system allows students, faculty members, and campus staff to quickly report physical defects and equipment breakdowns directly from their web browsers or Android smartphones. Every submitted ticket is assigned a unique tracking number, tagged with specific location coordinates, categorized by infrastructure domain, and supported by photo evidence.</p>
+    
+    <p>During the summer internship, my individual contribution was the <strong>MySQL Database and Backend Integration of the system</strong>. I designed the normalized relational database schema and connected the PHP backend to MySQL using PDO so that user accounts, category definitions, room locations, complaint tickets, technician assignments, and status histories are stored permanently and retrieved reliably for the student portal, admin dashboard, and reporting views.</p>
+    
+    <p>This report documents the project, the objectives of my contribution, the technologies used, the modules and tasks completed, the outcomes achieved, the challenges faced along with the solutions applied, and my overall conclusions. It reflects both the technical competencies I developed and my role in building a dependable, fully functional campus management system.</p>
+  </div>
+</div>
+
+<!-- PAGE 6: PROJECT OVERVIEW & OBJECTIVES -->
+<div class="page">
+  <div class="page-num">6</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 12px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">2. Project Overview</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.5; font-size: 10.2pt; margin-bottom: 8px;">
+    The Smart Campus Issue &amp; Facility Management System is a full-stack web and mobile application designed to digitize the end-to-end handling of campus maintenance complaints. A student logs into the Student Portal, fills in issue details, attaches a photo, and submits the ticket. The backend validates and records the issue, while the Admin Dashboard allows facility administrators to assign tickets to technicians, monitor resolution progress, and review analytics. The main components are listed below; the database layer was my primary responsibility.
+  </div>
+  
+  <table class="report-table" style="font-size: 9pt;">
+    <thead>
+      <tr>
+        <th style="width: 32%;">Component</th>
+        <th style="width: 68%;">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Student Web Portal (PHP)</strong></td>
+        <td>Student registration, secure login, issue submission with photo upload, and personal complaint tracking.</td>
+      </tr>
+      <tr>
+        <td><strong>Admin Dashboard (PHP)</strong></td>
+        <td>KPI metric counters, ticket assignment to technicians, status updates, category setup, and CSV export.</td>
+      </tr>
+      <tr>
+        <td><strong>Backend REST APIs (PHP)</strong></td>
+        <td>RESTful endpoints for authentication, role verification, complaint submission, and data queries.</td>
+      </tr>
+      <tr>
+        <td><strong>Database (MySQL) – My Contribution</strong></td>
+        <td>Permanent storage of users, locations, categories, complaints, and ticket history with quick query retrieval.</td>
+      </tr>
+      <tr>
+        <td><strong>Android App (Java / XML)</strong></td>
+        <td>Native Android client communicating with the backend APIs for student and technician on-the-go access.</td>
+      </tr>
+      <tr>
+        <td><strong>Whole Team</strong></td>
+        <td>System testing, cross-module integration, API schema alignment, and project documentation.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="text-center" style="margin-top: 14px; margin-bottom: 8px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">3. Objectives of My Contribution</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.48; font-size: 10.2pt;">
+    Because my role was the database and data integration layer, my objectives were to make the system's data persistent, reliable, and quick to retrieve:
+    <ul style="margin-top: 4px;">
+      <li><strong>Database design</strong> – to design normalized MySQL tables for users, categories, locations, tickets, and history logs, maintaining relational integrity through foreign keys.</li>
+      <li><strong>Backend connection</strong> – to connect the PHP backend to MySQL using PDO with secure parameter bindings and centralized environment configuration.</li>
+      <li><strong>Data operations</strong> – to implement insert, search, update, and filter operations for student complaints, technician dispatches, and category lookups.</li>
+      <li><strong>History and dashboard data</strong> – to supply live query results for dashboard counters, status distribution charts, and audit timelines.</li>
+      <li><strong>Code management</strong> – to maintain database scripts and backend code in version control for team collaboration.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PAGE 7: TECHNOLOGIES USED & MODULES -->
+<div class="page">
+  <div class="page-num">7</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 10px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">4. Technologies Used</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.48; font-size: 10.2pt; margin-bottom: 10px;">
+    My work used the database and backend stack together with the project's web and mobile interfaces. The main technologies were:
+    <ul style="margin-top: 4px;">
+      <li><strong>MySQL 8.0</strong> – the relational database management system used to store users, complaints, categories, and logs.</li>
+      <li><strong>PHP 8.1 &amp; PDO</strong> – the server-side language and database abstraction interface in which backend APIs and queries were implemented.</li>
+      <li><strong>HTML5, CSS3 &amp; JavaScript</strong> – the frontend technologies used to present forms, tables, and dashboards.</li>
+      <li><strong>Chart.js</strong> – client-side charting library for interactive issue statistics on the admin dashboard.</li>
+      <li><strong>Android (Java)</strong> – mobile client whose activities interact with the database via backend REST APIs.</li>
+      <li><strong>Git &amp; GitHub</strong> – used for version control; the repository hosts the complete project codebase.</li>
+    </ul>
+  </div>
+  
+  <div class="text-center" style="margin-top: 12px; margin-bottom: 6px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">5. Modules Developed / Tasks Performed</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-bottom: 6px;">
+    My work followed the flow of data through the system – from the student's request on the frontend to the record stored in MySQL – as shown below:
+  </div>
+  
+  <div class="img-container">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/fig_5_1_dataflow.png" alt="Data Flow Diagram" style="max-height: 90px;">
+    <div class="caption">Fig. 5.1 My contribution – data flow from the frontend to MySQL Database</div>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.48; font-size: 10pt;">
+    <p><strong>5.1 Database Design in MySQL:</strong><br>
+    The database stores all operational information needed by the application. A <span style="font-family: monospace;">users</span> table holds accounts for students, technicians, and administrators. A <span style="font-family: monospace;">categories</span> table lists departments like Electrical and Hardware. A <span style="font-family: monospace;">locations</span> table maps campus blocks and room numbers. A <span style="font-family: monospace;">tickets</span> table holds every reported issue, its priority, photo attachment, and assigned technician. Relational tables ensure data consistency and prevent duplication.</p>
+    
+    <p><strong>5.2 Database Tables and Schema Structure:</strong><br>
+    The primary tables and their relationships are structured so that any ticket's full lifecycle, reporting student, and assigned technician can be fetched with a single indexed join query.</p>
+  </div>
+</div>
+
+<!-- PAGE 8: DATABASE TABLES & CODE SNIPPETS -->
+<div class="page">
+  <div class="page-num">8</div>
+  
+  <table class="report-table" style="margin-top: 12px; font-size: 9pt;">
+    <thead>
+      <tr>
+        <th style="width: 22%;">Table</th>
+        <th style="width: 44%;">Purpose</th>
+        <th style="width: 34%;">Key Fields</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>users</strong></td>
+        <td>Accounts used for login and role verification</td>
+        <td>id, name, email, password, role, department</td>
+      </tr>
+      <tr>
+        <td><strong>categories</strong></td>
+        <td>Campus facility domains with SLA resolution hours</td>
+        <td>id, name, description, sla_hours</td>
+      </tr>
+      <tr>
+        <td><strong>locations</strong></td>
+        <td>Campus physical blocks, floors, and room numbers</td>
+        <td>id, block_name, floor, room_number</td>
+      </tr>
+      <tr>
+        <td><strong>tickets</strong></td>
+        <td>Every complaint submitted by a user</td>
+        <td>id, ticket_no, user_id, category_id, location_id, title, priority, status, image_url</td>
+      </tr>
+      <tr>
+        <td><strong>ticket_history</strong></td>
+        <td>Audit log of status changes and technician assignments</td>
+        <td>id, ticket_id, changed_by, old_status, new_status, timestamp</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-top: 8px;">
+    <p><strong>5.3 Connecting Backend to MySQL via PDO:</strong><br>
+    The backend connects to MySQL once per request using PDO. Prepared statements ensure that database operations are fast and completely immune to SQL injection.</p>
+  </div>
+  
+  <div class="code-box">// backend/config/database.php - PDO Connection
+class Database {
+    private $host = "localhost";
+    private $db_name = "smart_campus";
+    private $username = "root";
+    private $password = "";
+    public $conn;
+
+    public function getConnection() {
+        try {
+            $dsn = "mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4";
+            $this->conn = new PDO($dsn, $this->username, $this->password, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]);
+        } catch(PDOException $e) {
+            error_log("Connection error: " . $e->getMessage());
+        }
+        return $this->conn;
+    }
+}</div>
+
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-top: 6px;">
+    <p><strong>5.4 Authentication and Complaint Submission:</strong><br>
+    At login, the backend verifies the user's password using <span style="font-family: monospace;">password_verify()</span> and starts a session. When a complaint is filed, the backend validates inputs, saves the image, and inserts the record.</p>
+  </div>
+  
+  <div class="code-box">// backend/api/create_ticket.php - Parameterized Ticket Insert
+$query = "INSERT INTO tickets (ticket_no, user_id, category_id, location_id, title, description, priority, status, image_url)
+          VALUES (:ticket_no, :user_id, :cat_id, :loc_id, :title, :desc, :priority, 'Open', :img)";
+$stmt = $db->prepare($query);
+$stmt->execute([
+    ':ticket_no' => 'TKT-' . date('Y') . '-' . strtoupper(bin2hex(random_bytes(3))),
+    ':user_id'   => $_SESSION['user_id'],
+    ':cat_id'    => $_POST['category_id'],
+    ':loc_id'    => $_POST['location_id'],
+    ':title'     => htmlspecialchars(strip_tags($_POST['title'])),
+    ':desc'      => htmlspecialchars(strip_tags($_POST['description'])),
+    ':priority'  => $_POST['priority'],
+    ':img'       => $uploaded_file_path
+]);</div>
+</div>
+
+<!-- PAGE 9: OUTPUTS 1 & 2 (LANDING & LOGIN) -->
+<div class="page">
+  <div class="page-num">9</div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-top: 10px;">
+    <p><strong>5.5 System Outputs and User Interface Screens:</strong><br>
+    The system interfaces were built to ensure clear navigation, role separation, and high usability. Below are the core operational screens developed for portal routing and student access.</p>
+    <p><strong>5.5.1 Landing Portal &amp; Student Authentication Screens:</strong></p>
+  </div>
+  
+  <div class="img-container" style="margin: 6px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output1_landing.png" style="max-height: 200px; width: auto;" alt="Landing Portal Selector">
+    <div class="caption">Fig. 5.2 Main Landing Portal Selector (Dual Routing for Students and Facility Administrators)</div>
+  </div>
+  
+  <div class="img-container" style="margin: 6px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output2_student_login.png" style="max-height: 200px; width: auto;" alt="Student Authentication Screen">
+    <div class="caption">Fig. 5.3 Student Authentication &amp; Login Interface with Session Security and Validation</div>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 9.5pt; margin-top: 6px;">
+    The Landing Portal provides instant role-based direction, allowing students to access issue submission while directing administrators to management queues. The authentication screen implements password hashing and invalid attempt alerts.
+  </div>
+</div>
+
+<!-- PAGE 10: OUTPUTS 3 & 4 (STUDENT DASHBOARD & NEW COMPLAINT) -->
+<div class="page">
+  <div class="page-num">10</div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-top: 10px;">
+    <p><strong>5.5.2 Student Dashboard &amp; New Complaint Filing:</strong><br>
+    Once authenticated, students interact with their personalized complaint management environment to monitor existing tickets and file new grievances with attached photographic evidence.</p>
+  </div>
+  
+  <div class="img-container" style="margin: 6px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output3_student_dashboard.png" style="max-height: 195px; width: auto;" alt="Student Dashboard">
+    <div class="caption">Fig. 5.4 Student Dashboard displaying KPI counters, live ticket status badges, and action buttons</div>
+  </div>
+  
+  <div class="img-container" style="margin: 6px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output4_new_complaint.png" style="max-height: 195px; width: auto;" alt="New Complaint Registration">
+    <div class="caption">Fig. 5.5 New Complaint Filing Interface with Category selection, Room tagging, and Photo Evidence upload</div>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 9.5pt; margin-top: 6px;">
+    The Student Dashboard aggregates personal statistics (Total, Open, In Progress, Resolved). The complaint filing interface enables quick category selection (e.g. Electrical, Plumbing, IT Hardware) and allows uploading photo attachments for fast technician appraisal.
+  </div>
+</div>
+
+<!-- PAGE 11: OUTPUTS 5 & 6 (ADMIN DASHBOARD & RESOLUTION) + TEAM TESTING -->
+<div class="page">
+  <div class="page-num">11</div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-top: 10px;">
+    <p><strong>5.5.3 Admin Control Dashboard &amp; Technician Resolution Queue:</strong><br>
+    The administrative interface provides campus facility managers with complete oversight, real-time analytics, and technician allocation controls.</p>
+  </div>
+  
+  <div class="img-container" style="margin: 5px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output5_admin_dashboard.png" style="max-height: 180px; width: auto;" alt="Admin Dashboard">
+    <div class="caption">Fig. 5.6 Admin Central Control Dashboard featuring Real-Time KPI Cards and Chart.js Issue Visualizations</div>
+  </div>
+  
+  <div class="img-container" style="margin: 5px 0;">
+    <img src="file:///C:/Users/ASUS/.gemini/antigravity/scratch/SmartCampus/documentation/screenshots/output6_admin_complaints.png" style="max-height: 180px; width: auto;" alt="Admin Complaints Queue">
+    <div class="caption">Fig. 5.7 Admin Complaints Management Table with Status filtering and Technician Assignment Controls</div>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 9.5pt; margin-top: 6px;">
+    <p><strong>5.6 Team Activities – Integration &amp; Quality Assurance Testing:</strong><br>
+    <strong>Module Integration:</strong> Integrated REST APIs with the Android app and web portals, ensuring identical JSON contracts.<br>
+    <strong>Testing:</strong> Verified SQL injection protection via PDO, confirmed file upload validation, and tested status update audit triggers across multi-role logins.</p>
+  </div>
+</div>
+
+<!-- PAGE 12: OUTCOMES & CHALLENGES -->
+<div class="page">
+  <div class="page-num">12</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 10px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">6. Outcomes Achieved</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.5; font-size: 10pt;">
+    <p><strong>6.1 Technical Learning:</strong></p>
+    <ul>
+      <li>Learned principles of relational database design, foreign keys, normalization, and indexing in MySQL.</li>
+      <li>Gained hands-on experience connecting PHP applications to MySQL using PDO and writing parameterized queries.</li>
+      <li>Learned secure password handling using <span style="font-family: monospace;">password_hash()</span> and session management.</li>
+      <li>Understood image file upload handling, MIME validation, and file path persistence in database tables.</li>
+      <li>Practiced version control workflows using Git and GitHub for collaborative development.</li>
+    </ul>
+    
+    <p><strong>6.2 Project Experience:</strong></p>
+    <ul>
+      <li>Collaborated with team members to match database schemas with web and mobile UI requirements.</li>
+      <li>Saw the project grow from conceptual database design into a complete, usable campus management solution.</li>
+      <li>Learned the importance of structured error handling and database transaction consistency.</li>
+    </ul>
+  </div>
+  
+  <div class="text-center" style="margin-top: 12px; margin-bottom: 8px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">7. Challenges Faced and Solutions</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 10pt; margin-bottom: 6px;">
+    Managing data persistence and integration required addressing technical challenges between the frontend and MySQL:
+  </div>
+  
+  <table class="report-table" style="font-size: 9pt;">
+    <thead>
+      <tr>
+        <th style="width: 38%;">Challenge</th>
+        <th style="width: 62%;">Solution Applied</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Structuring relational campus data efficiently</td>
+        <td>Designed normalized tables for users, categories, locations, and complaints linked via foreign keys.</td>
+      </tr>
+      <tr>
+        <td>Preventing SQL injection vulnerabilities</td>
+        <td>Used PDO prepared statements with parameter binding for all database operations.</td>
+      </tr>
+      <tr>
+        <td>Handling file upload security for photos</td>
+        <td>Enforced MIME type checks on the server and generated unique file names before saving paths.</td>
+      </tr>
+      <tr>
+        <td>Maintaining an audit log of status updates</td>
+        <td>Created a dedicated <span style="font-family: monospace;">ticket_history</span> table to log every transition with timestamp and user ID.</td>
+      </tr>
+      <tr>
+        <td>Ensuring responsive dashboard metrics</td>
+        <td>Wrote optimized SQL aggregate queries (<span style="font-family: monospace;">COUNT</span>, <span style="font-family: monospace;">GROUP BY</span>) with indexed columns.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PAGE 13: CONCLUSION & REFERENCES -->
+<div class="page">
+  <div class="page-num">13</div>
+  <div class="text-center" style="margin-top: 15px; margin-bottom: 10px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">8. Conclusion</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.58; font-size: 10.2pt; margin-bottom: 18px;">
+    <p>My contribution was the database and backend data integration layer of the Smart Campus Issue &amp; Facility Management System. During the summer internship, I designed the MySQL schema, connected the PHP backend using PDO, and implemented structured storage for users, complaints, categories, and audit records so that the system maintains a complete, permanent operational record.</p>
+    
+    <p>Working on the integration allowed me to ensure that what students report on the frontend, what the backend processes, and what administrators see on the dashboard remain synchronized. Issue reporting, technician assignment, and status timelines now pull directly from stored data, transforming manual register maintenance into an efficient digital process.</p>
+    
+    <p>Overall, this internship gave me valuable practical experience in relational database design and demonstrated how a web platform becomes a robust product once data storage, security, and intuitive interfaces are integrated. In future, the database can be extended to support push notifications, mobile GPS coordinates, and preventive maintenance scheduling.</p>
+  </div>
+  
+  <div class="text-center" style="margin-top: 18px; margin-bottom: 10px;">
+    <h2 style="font-size: 13.5pt; font-weight: bold;">9. References</h2>
+  </div>
+  
+  <div class="text-justify" style="line-height: 1.45; font-size: 9.5pt;">
+    <div class="ref-item">[1] Smart Campus Issue &amp; Facility Management System – Internship Technical Documentation, Department of Information Technology, SVPCET Nagpur, 2026-27.</div>
+    <div class="ref-item">[2] Elmasri, R., &amp; Navathe, S. B. (2021). <em>Fundamentals of Database Systems</em>, 7th Edition, Pearson Education.</div>
+    <div class="ref-item">[3] Nixon, R. (2021). <em>Learning PHP, MySQL &amp; JavaScript: With jQuery, CSS &amp; HTML5</em>, 6th Edition, O'Reilly Media.</div>
+    <div class="ref-item">[4] Fielding, R. T. (2000). <em>Architectural Styles and the Design of Network-based Software Architectures</em>, Doctoral dissertation, University of California, Irvine.</div>
+    <div class="ref-item">[5] MySQL 8.0 Reference Manual – <a href="https://dev.mysql.com/doc/refman/8.0/en/" style="color: #000; text-decoration: none;">https://dev.mysql.com/doc/refman/8.0/en/</a></div>
+    <div class="ref-item">[6] PHP Data Objects (PDO) Documentation – <a href="https://www.php.net/manual/en/book.pdo.php" style="color: #000; text-decoration: none;">https://www.php.net/manual/en/book.pdo.php</a></div>
+    <div class="ref-item">[7] OWASP Foundation. (2023). <em>OWASP Top Ten Web Application Security Risks</em> – <a href="https://owasp.org/" style="color: #000; text-decoration: none;">https://owasp.org/</a></div>
+    <div class="ref-item">[8] Chart.js Open-Source Charting Documentation – <a href="https://www.chartjs.org/docs/" style="color: #000; text-decoration: none;">https://www.chartjs.org/docs/</a></div>
+  </div>
+</div>
+
+</body>
+</html>
